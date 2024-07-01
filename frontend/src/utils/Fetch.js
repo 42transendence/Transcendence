@@ -5,7 +5,7 @@ class Fetch {
 
   static #headers = new Headers({ 'Content-Type': 'application/json' });
 
-  static #credentials = 'same-origin';
+  static #credentials = 'include';
 
   static #retry = 1;
 

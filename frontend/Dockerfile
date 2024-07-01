@@ -12,6 +12,6 @@ EXPOSE 3000
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
-CMD ["npm", "run", "dev"]
+#CMD ["npm", "run", "dev"]
 
-#CMD ["npm", "run", "build"]
+CMD ["npm", "run", "build"]

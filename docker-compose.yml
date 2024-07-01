@@ -35,7 +35,7 @@ services:
     volumes:
       - ./frontend/:/app
       - /app/node_modules
-#      - frontend-data:/app/dist
+      - frontend-data:/app/dist
     networks:
       - network
 
@@ -45,12 +45,11 @@ services:
     build: ./nginx
     ports:
       - '80:80'
-#      - '443:443'
+      - '443:443'
     networks:
       - network
-#    volumes:
-#      - frontend-data:/usr/share/nginx/html
     volumes:
+      - frontend-data:/usr/share/nginx/html
       - backend-media:/app/media
 
 volumes:

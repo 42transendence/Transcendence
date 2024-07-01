@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm start\" \"npm run start-json-server\"",
+    "dev": "npm start",
     "start": "vite --host",
-    "start-json-server": "json-server-auth --host 0.0.0.0 --watch db.json --port 8080 -r routes.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vite build"
+    "build": "vite build --emptyOutDir"
   },
   "author": "",
   "license": "ISC",
@@ -21,8 +20,6 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "json-server": "^0.17.4",
-    "json-server-auth": "^2.1.0",
     "lint-staged": "^15.2.2",
     "prettier": "3.2.5",
     "sass": "^1.77.1",

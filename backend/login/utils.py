@@ -11,24 +11,22 @@ def send_verification_code(email) -> bool:
     """
     메일 인증 코드 생성 및 전송
     """
-    # code = User.objects.make_random_password(length=6)  # 6자리 랜덤 코드 생성
-    code = "hihihi"
+    code = User.objects.make_random_password(length=6)  # 6자리 랜덤 코드 생성
     TFA.objects.create(email=email, code=code)  # DB에 저장
-    return True
 
-    # try:
-    #     smtp = smtplib.SMTP(settings.EMAIL_HOST, int(settings.EMAIL_PORT))
-    #     smtp.starttls()
-    #     smtp.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
-    #     smtp.sendmail(
-    #         settings.EMAIL_HOST_USER,
-    #         email,
-    #         f"Your verification code is <{code}>",
-    #     )
-    #     smtp.quit()
-    #     return True
-    # except Exception as e:
-    #     return False
+    try:
+        smtp = smtplib.SMTP(settings.EMAIL_HOST, int(settings.EMAIL_PORT))
+        smtp.starttls()
+        smtp.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+        smtp.sendmail(
+            settings.EMAIL_HOST_USER,
+            email,
+            f"Your verification code is <{code}>",
+        )
+        smtp.quit()
+        return True
+    except Exception as e:
+        return False
 
 
 def verify_email(request) -> str:
